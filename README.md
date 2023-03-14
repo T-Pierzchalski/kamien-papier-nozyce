@@ -1,2 +1,2 @@
 # kamien-papier-nozyce
- Aplikacja pozwalająca zagrać w kamień papier nożyce w KONSOLI PROGRAMISTYCZNEJ! 
+ Aplikacja pozwalająca zagrać z komputerem w kamień - papier - nożyce.
