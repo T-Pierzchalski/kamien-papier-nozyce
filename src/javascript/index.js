@@ -12,6 +12,9 @@ span.style.cssText = "color:red";
 const reset = document.createElement("button");
 reset.textContent = "reset";
 
+const kompwin = "wygrał komputer!";
+const playerwin = "wygrałeś!";
+
 function getComputerChoice() {
 	function random() {
 		const randomize = Math.floor(Math.random() * 100);
@@ -59,8 +62,6 @@ function playRound(playerSelection, computerSelection) {
 	playerSelection = getPlayerChoice();
 	computerSelection = getComputerChoice();
 	function gameRules() {
-		const kompwin = "wygrał komputer!";
-		const playerwin = "wygrałeś!";
 		if (playerSelection === computerSelection) {
 			return (span.textContent =
 				playerSelection + " = " + computerSelection + " = remis");
@@ -86,13 +87,27 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() {
-	for (let i = 0; i < 5; i++) {
+	const rezultK = span.innerHTML.includes(kompwin);
+	const rezultP = span.innerHTML.includes(playerwin);
+	const para = document.createElement("p");
+	let accKomp = 1;
+	let accPlayer = 1;
+	for (let i = 0; i <= 5; i++) {
 		span.innerHTML += playRound() + "<br>";
 		buttons.forEach(button => {
 			if (btnZagraj.classList.contains("active")) {
 				button.classList.remove("active");
 			}
 		});
+		if (rezultK) {
+			accKomp += 1;
+			para.textContent += "Komputer ma: " + accKomp + "punktów!";
+		} else if (rezultP) {
+			accPlayer += 1;
+			para.textContent += "Komputer ma: " + accPlayer + "punktów!";
+		}
+
+		span.appendChild(para);
 		break;
 	}
 }
