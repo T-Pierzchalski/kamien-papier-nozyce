@@ -89,10 +89,11 @@ function playRound(playerSelection, computerSelection) {
 function game() {
 	const rezultK = span.innerHTML.includes(kompwin);
 	const rezultP = span.innerHTML.includes(playerwin);
-	const para = document.createElement("p");
-	let accKomp = 1;
-	let accPlayer = 1;
-	for (let i = 0; i <= 5; i++) {
+	let accKomp = 0;
+	let accPlayer = 0;
+	for (let i = 0; i <= 0; i++) {
+		const para1 = document.createElement("p");
+		const para2 = document.createElement("p");
 		span.innerHTML += playRound() + "<br>";
 		buttons.forEach(button => {
 			if (btnZagraj.classList.contains("active")) {
@@ -101,14 +102,13 @@ function game() {
 		});
 		if (rezultK) {
 			accKomp += 1;
-			para.textContent += "Komputer ma: " + accKomp + "punktów!";
+			para1.textContent += "Komputer ma: " + accKomp + "punktów!";
 		} else if (rezultP) {
 			accPlayer += 1;
-			para.textContent += "Komputer ma: " + accPlayer + "punktów!";
-		}
+			para2.textContent += "Masz: " + accPlayer + "punktów!";
+		} else;
 
-		span.appendChild(para);
-		break;
+		span.appendChild(para1) + span.appendChild(para2);
 	}
 }
 
